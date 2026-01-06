@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>라온동행교회 생일 목록</title>
+    <!-- Tailwind CSS (스타일링) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts (폰트) -->
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome (아이콘) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f3f4f6;
+        }
+        h1, h2 {
+            font-family: 'Gowun Dodum', sans-serif;
+        }
+        .card-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card-shadow:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        /* 현재 월 강조 스타일 */
+        .current-month {
+            border: 2px solid #3b82f6; /* 파란색 테두리 */
+            background-color: #eff6ff; /* 아주 연한 파란 배경 */
+        }
+        .current-month .month-header {
+            background-color: #3b82f6;
+            color: white;
+        }
+        .current-tag {
+            display: none;
+        }
+        .current-month .current-tag {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+
+    <!-- 헤더 섹션 -->
+    <header class="bg-white shadow-sm sticky top-0 z-10">
+        <div class="max-w-6xl mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+            <div>
+                <h1 class="text-2xl md:text-3xl font-bold text-gray-800">
+                    <i class="fa-solid fa-church text-blue-500 mr-2"></i>라온동행교회
+                </h1>
+                <p class="text-gray-500 mt-1">우리 성도님들의 생일을 축복합니다 🎉</p>
+            </div>
+            <div class="mt-4 md:mt-0">
+                 <span id="today-date" class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">
+                    <!-- 오늘 날짜가 JS로 들어갑니다 -->
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <!-- 메인 콘텐츠 -->
+    <main class="flex-grow max-w-6xl mx-auto px-4 py-8 w-full">
+        
+        <!-- 그리드 레이아웃: 모바일 1열, 태블릿 2열, 데스크탑 3~4열 -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="birthday-grid">
+            
+            <!-- 1월 -->
+            <div class="bg-white rounded-xl overflow-hidden card-shadow border border-gray-100" data-month="1">
+                <div class="month-header bg-gray-100 p-4 flex justify-between items-center border-b border-gray-200">
+                    <h2 class="text-xl font-bold">1월 January</h2>
+                    <span class="current-tag bg-white text-blue-600 text-xs px-2 py-1 rounded-full font-bold shadow-sm">이번 달</span>
+                </div>
+                <ul class="divide-y divide-gray-100">
+                    <li class="p-4 flex items-center hover:bg-gray-50">
+                        <span class="w-8 h-8 flex items-center justify-center bg-blue-50 text-blue-600 rounded-full font-bold mr-3 text-sm">11</span>
+                        <span class="font-medium">황세영</span>
+                    </li>
+                    <li class="p-4 flex items-center hover:bg-gray-50">
+                        <span class="w-8 h-8 flex items-center justify-center bg-blue-50 text-blue-600 rounded-full font-bold mr-3 text-sm">16</span>
+                        <span class="font-medium">최아란</span>
+                    </li>
+                    <li class="p-4 flex items-center hover:bg-gray-50">
+                        <span class="w-8 h-8 flex items-center justify-center bg-blue-50 text-blue-600 rounded-full font-bold mr-3 text-sm">22</span>
+                        <span class="font-medium">이주예</span>
+                    </li>
+                    <li class="p-4 flex items-center hover:bg-gray-50">
+                        <span class="w-8 h-8 flex items-center justify-center bg-blue-50 text-blue-600 rounded-full font-bold mr-3 text-sm">27</span>
+                        <span class="font-medium">윤혜영</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 2월 -->
+            <div class="bg-white rounded-xl overflow-hidden card-shadow border border-gray-100" data-month="2">
+                <div class="month-header bg-gray-100 p-4 flex justify-between items-center border-b border-gray-200">
+                    <h2 class="text-xl font-bold">2월 February</h2>
+                    <span class="current-tag bg-white text-blue-600 text-xs px-2 py-1 rounded-full font-bold shadow-sm">이번 달</span>
+                </div>
+                <ul class="divide-y divide-gray-100">
+                    <li class="p-4 flex items-center hover:bg-gray-50">
+                        <span class="w-8 h-8 flex items-center justify-center bg-blue-50 text-blue-600 rounded-full font-bold mr-3 text-sm">1</span>
+                        <span class="font-medium">이동현</span>
+                    </li>
+                    <li class="p-4 flex items-center hover:bg-gray-50">
+                        <span class="w-8 h-8 flex items-center justify-center bg-blue-50 text-blue-600 rounded-full font-bold mr-3 text-sm">2</span>
+                        <span class="font-medium">최동호</span>
+                    </li>
+                    <li class="p-4 flex items-center hover:bg-gray-50">
+                        <span class="w-8 h-8 flex items-center justify-center bg-blue-50 text-blue-600 rounded-full font-bold mr-3 text-sm">6</span>
+                        <span class="font-medium">안현진</span>
+                    </li>
+                    <li class="p-4 flex items-center hover:bg-gray-50">
+                        <span class="w-8 h-8 flex items-center justify-center bg-blue-50 text-blue-600 rounded-full font-bold mr-3 text-sm">15</span>
+                        <span class="font-medium">정미경</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 3월 -->
+            <div class="bg-white rounded-xl overflow-hidden card-shadow border border-gray-100" data-month="3">
+                <div class="month-header bg-gray-100 p-4 flex justify-between items-center border-b border-gray-200">
+                    <h2 class="text-xl font-bold">3월 March</h2>
+                    <span class="current-tag bg-white text-blue-600 text-xs px-2 py-1 rounded-full font-bold shadow-sm">이번 달</span>
+                </div>
+                <ul class="divide-y divide-gray-100">
+                    <li class="p-4 flex items-center hover:bg-gray-50">
+                        <span class="w-8 h-8 flex items-center justify-center bg-blue-50 text-blue-600 rounded-full font-bold mr-3 text-sm">15</span>
+                        <span class="font-medium">원유정</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 4월 -->
+            <div class="bg-white rounded-xl overflow-hidden card-shadow border border-gray-100" data-month="4">
+                <div class="month-header bg-gray-100 p-4 flex justify-between items-center border-b border-gray-200">
+                    <h2 class="text-xl font-bold">4월 April</h2>
+                    <span class="current-tag bg-white text-blue-600 text-xs px-2 py-1 rounded-full font-bold shadow-sm">이번 달</span>
+                </div>
+                <ul class="divide-y divide-gray-100">
+                    <li class="p-4 flex items-center hover:bg-gray-50">
+                        <span class="w-8 h-8 flex items-center justify-center bg-blue-50 text-blue-600 rounded-full font-bold mr-3 text-sm">12</span>
+                        <span class="font-medium">이다예</span>
+                    </li>
+                    <li class="p-4 flex items-center hover:bg-gray-50">
+                        <span class="w-8 h-8 flex items-center justify-center bg-blue-50 text-blue-600 rounded-full font-bold mr-3 text-sm">21</span>
+                        <span class="font-medium">임성호</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 5월 -->
+            <div class="bg-white rounded-xl overflow-hidden card-shadow border border-gray-100" data-month="5">
+                <div class="month-header bg-gray-100 p-4 flex justify-between items-center border-b border-gray-200">
+                    <h2 class="text-xl font-bold">5월 May</h2>
+                    <span class="current-tag bg-white text-blue-600 text-xs px-2 py-1 rounded-full font-bold shadow-sm">이번 달</span>
+                </div>
+                <ul class="divide-y divide-gray-100">
+                    <li class="p-4 flex items-center hover:bg-gray-50">
+                        <span class="w-8 h-8 flex items-center justify-center bg-blue-50 text-blue-600 rounded-full font-bold mr-3 text-sm">15</span>
+                        <span class="font-medium">이윤준</span>
+                    </li>
+                    <li class="p-4 flex items-center hover:bg-gray-50">
+                        <span class="w-8 h-8 flex items-center justify-center bg-blue-50 text-blue-600 rounded-full font-bold mr-3 text-sm">15</span>
+                        <span class="font-medium">이윤한</span>
+                    </li>
+                    <li class="p-4 flex items-center hover:bg-gray-50">
+                        <span class="w-8 h-8 flex items-center justify-center bg-blue-50 text-blue-600 rounded-full font-bold mr-3 text-sm">27</span>
+                        <span class="font-medium">박영애</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 6월 -->
+            <div class="bg-white rounded-xl overflow-hidden card-shadow border border-gray-100" data-month="6">
+                <div class="month-header bg-gray-100 p-4 flex justify-between items-center border-b border-gray-200">
+                    <h2 class="text-xl font-bold">6월 June</h2>
+                    <span class="current-tag bg-white text-blue-600 text-xs px-2 py-1 rounded-full font-bold shadow-sm">이번 달</span>
+                </div>
+                <ul class="divide-y divide-gray-100">
+                    <li class="p-4 flex items-center hover:bg-gray-50">
+                        <span class="w-8 h-8 flex items-center justify-center bg-blue-50 text-blue-600 rounded-full font-bold mr-3 text-sm">13</span>
+                        <span class="font-medium">안지선</span>
+                    </li>
+                    <li class="p-4 flex items-center hover:bg-gray-50">
+                        <span class="w-8 h-8 flex items-center justify-center bg-blue-50 text-blue-600 rounded-full font-bold mr-3 text-sm">25</span>
+                        <span class="font-medium">이광진</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 7월 -->
+            <div class="bg-white rounded-xl overflow-hidden card-shadow border border-gray-100" data-month="7">
+                <div class="month-header bg-gray-100 p-4 flex justify-between items-center border-b border-gray-200">
+                    <h2 class="text-xl font-bold">7월 July</h2>
+                    <span class="current-tag bg-white text-blue-600 text-xs px-2 py-1 rounded-full font-bold shadow-sm">이번 달</span>
+                </div>
+                <ul class="divide-y divide-gray-100">
+                    <li class="p-4 flex items-center hover:bg-gray-50">
+                        <span class="w-8 h-8 flex items-center justify-center bg-blue-50 text-blue-600 rounded-full font-bold mr-3 text-sm">2</span>
+                        <span class="font-medium">김준호</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 8월 -->
+            <div class="bg-white rounded-xl overflow-hidden card-shadow border border-gray-100" data-month="8">
+                <div class="month-header bg-gray-100 p-4 flex justify-between items-center border-b border-gray-200">
+                    <h2 class="text-xl font-bold">8월 August</h2>
+                    <span class="current-tag bg-white text-blue-600 text-xs px-2 py-1 rounded-full font-bold shadow-sm">이번 달</span>
+                </div>
+                <ul class="divide-y divide-gray-100">
+                    <li class="p-4 flex items-center hover:bg-gray-50">
+                        <span class="w-8 h-8 flex items-center justify-center bg-blue-50 text-blue-600 rounded-full font-bold mr-3 text-sm">12</span>
+                        <span class="font-medium">오승하</span>
+                    </li>
+                    <li class="p-4 flex items-center hover:bg-gray-50">
+                        <span class="w-8 h-8 flex items-center justify-center bg-blue-50 text-blue-600 rounded-full font-bold mr-3 text-sm">24</span>
+                        <span class="font-medium">오승현</span>
+                    </li>
+                    <li class="p-4 flex items-center hover:bg-gray-50">
+                        <span class="w-8 h-8 flex items-center justify-center bg-blue-50 text-blue-600 rounded-full font-bold mr-3 text-sm">28</span>
+                        <span class="font-medium">오상석</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 9월 -->
+            <div class="bg-white rounded-xl overflow-hidden card-shadow border border-gray-100" data-month="9">
+                <div class="month-header bg-gray-100 p-4 flex justify-between items-center border-b border-gray-200">
+                    <h2 class="text-xl font-bold">9월 September</h2>
+                    <span class="current-tag bg-white text-blue-600 text-xs px-2 py-1 rounded-full font-bold shadow-sm">이번 달</span>
+                </div>
+                <ul class="divide-y divide-gray-100">
+                    <li class="p-4 flex items-center hover:bg-gray-50">
+                        <span class="w-8 h-8 flex items-center justify-center bg-blue-50 text-blue-600 rounded-full font-bold mr-3 text-sm">12</span>
+                        <span class="font-medium">안지율</span>
+                    </li>
+                    <li class="p-4 flex items-center hover:bg-gray-50">
+                        <span class="w-8 h-8 flex items-center justify-center bg-blue-50 text-blue-600 rounded-full font-bold mr-3 text-sm">27</span>
+                        <span class="font-medium">강윤정</span>
+                    </li>
+                    <li class="p-4 flex items-center hover:bg-gray-50">
+                        <span class="w-8 h-8 flex items-center justify-center bg-blue-50 text-blue-600 rounded-full font-bold mr-3 text-sm">30</span>
+                        <span class="font-medium">박상민</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 10월 -->
+            <div class="bg-white rounded-xl overflow-hidden card-shadow border border-gray-100" data-month="10">
+                <div class="month-header bg-gray-100 p-4 flex justify-between items-center border-b border-gray-200">
+                    <h2 class="text-xl font-bold">10월 October</h2>
+                    <span class="current-tag bg-white text-blue-600 text-xs px-2 py-1 rounded-full font-bold shadow-sm">이번 달</span>
+                </div>
+                <ul class="divide-y divide-gray-100">
+                    <li class="p-4 flex items-center hover:bg-gray-50">
+                        <span class="w-8 h-8 flex items-center justify-center bg-blue-50 text-blue-600 rounded-full font-bold mr-3 text-sm">21</span>
+                        <span class="font-medium">이광복</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 11월 -->
+            <div class="bg-white rounded-xl overflow-hidden card-shadow border border-gray-100" data-month="11">
+                <div class="month-header bg-gray-100 p-4 flex justify-between items-center border-b border-gray-200">
+                    <h2 class="text-xl font-bold">11월 November</h2>
+                    <span class="current-tag bg-white text-blue-600 text-xs px-2 py-1 rounded-full font-bold shadow-sm">이번 달</span>
+                </div>
+                <ul class="divide-y divide-gray-100">
+                    <li class="p-4 flex items-center hover:bg-gray-50">
+                        <span class="w-8 h-8 flex items-center justify-center bg-blue-50 text-blue-600 rounded-full font-bold mr-3 text-sm">12</span>
+                        <span class="font-medium">지하연</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 12월 -->
+            <div class="bg-white rounded-xl overflow-hidden card-shadow border border-gray-100" data-month="12">
+                <div class="month-header bg-gray-100 p-4 flex justify-between items-center border-b border-gray-200">
+                    <h2 class="text-xl font-bold">12월 December</h2>
+                    <span class="current-tag bg-white text-blue-600 text-xs px-2 py-1 rounded-full font-bold shadow-sm">이번 달</span>
+                </div>
+                <ul class="divide-y divide-gray-100">
+                    <li class="p-4 flex items-center hover:bg-gray-50">
+                        <span class="w-8 h-8 flex items-center justify-center bg-blue-50 text-blue-600 rounded-full font-bold mr-3 text-sm">1</span>
+                        <span class="font-medium">홍윤희</span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- 푸터 -->
+    <footer class="bg-white border-t border-gray-200 mt-8 py-8">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p class="text-gray-500 mb-2">
+                <i class="fa-solid fa-heart text-red-400 mr-1"></i>
+                라온동행교회
+            </p>
+            <p class="text-xs text-gray-400">사랑이 넘치는 교회가 되길 소망합니다.</p>
+        </div>
+    </footer>
+
+    <!-- 스크립트: 오늘 날짜 표시 및 이번 달 카드 강조 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date();
+            const currentMonth = today.getMonth() + 1; // 0-11 to 1-12
+            const currentYear = today.getFullYear();
+            const currentDate = today.getDate();
+            
+            // 날짜 표시
+            const days = ['일', '월', '화', '수', '목', '금', '토'];
+            const dateString = `${currentYear}년 ${currentMonth}월 ${currentDate}일 (${days[today.getDay()]})`;
+            document.getElementById('today-date').textContent = dateString;
+
+            // 이번 달 카드 찾아서 스타일 적용
+            const monthCards = document.querySelectorAll('[data-month]');
+            monthCards.forEach(card => {
+                const cardMonth = parseInt(card.getAttribute('data-month'));
+                if (cardMonth === currentMonth) {
+                    card.classList.add('current-month');
+                    // 모바일이나 스크롤이 내려가 있을 때 찾기 쉽게 약간의 스크롤 조정 (선택 사항)
+                    // card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
